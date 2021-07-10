@@ -9,7 +9,7 @@ import java.util.List;
 public class StreamMatt {
 
     @Test
-    void stream(int year){
+    void stream(){
         List<YearMonth> month = new ArrayList<>();
         month.add(YearMonth.of(2020,3));
         month.add(YearMonth.of(2020,7));
@@ -18,6 +18,7 @@ public class StreamMatt {
         // 找出屬於傳入年份的月份, 將其天數累加
 
         int totalDays = 0;
+        int year = 2020;
 
         for (YearMonth m : month) { // loop
             if (m.getYear() == year) { // 過濾

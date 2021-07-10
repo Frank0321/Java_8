@@ -25,7 +25,29 @@
   2. 箭頭符號
   3. 方法內容
 - 透過把函式作為方法的參數傳遞，使的程式碼變的更加簡潔
-
+- 運用參照方法的方式來定義 Lambda 方法實作(四種方式)
+  1. 方法是靜態(static)方法
+     - 語法 -> ConcreteClassName :: staticMethodName
+  2. 方法是實例(instance)方法，來自lambda表示式之「外」的參考變數
+     - 語法 -> objectReference :: instanceMethodName
+  3. 方法是實例(instance)方法，來自lambda表示式之「內」的參考變數
+     - 語法 -> ObjectReferenceType :: instanceMethodName
+  4. 使用 new 呼叫(帶參數)建構子
+    - 語法 -> ClassName :: new
+- Java 8 之後的 interface，常被用來撰寫成 Lambda
+  1. Function (功能型)
+     - 傳入參數 T -> 傳出參數 R
+     - input int -> output string
+  2. Consumer (消費型)
+     - 傳入參數 T -> "沒有"傳出
+     - input int -> none output
+  3. Predicate (評斷型)
+     - 傳入參數 T -> 傳出 True/false
+     - input int -> boolean
+  4. Supplier (供應型)  
+     - "沒有"傳入 -> 傳出參數 R 
+     - none input -> output int
+    
 
 ## Stream API
 

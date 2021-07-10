@@ -25,6 +25,9 @@ public class Lambda {
         return strs;
     }
 
+    /**
+     * 使用匿名者類別，實作排序功能
+     */
     @Test
     void originMethod(){
         List<String> strs = CreatData();
@@ -39,6 +42,10 @@ public class Lambda {
         System.out.println();
     }
 
+    /**
+     * 使用 lambda 的方法，實作排序功能
+     * 參數不宣告類型(不需要特別宣告類型就可以識別參數)
+     */
     @Test
     void lambdaMethodOne(){
         List<String> strs = CreatData();
@@ -48,6 +55,11 @@ public class Lambda {
         System.out.println();
     }
 
+
+    /**
+     * 使用 lambda 的方法，實作排序功能
+     * 實作內容超過一行以上時，需要 {} + return
+     */
     @Test
     void lambdaMethodThree(){
         List<String> strs = CreatData();
@@ -61,6 +73,9 @@ public class Lambda {
         System.out.println();
     }
 
+    /**
+     * TODO : 解釋
+     */
     @Test
     void lambdaMethodTwo(){
         List<String> strs = CreatData();
