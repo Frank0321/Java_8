@@ -55,6 +55,13 @@
 
 ## 參考資料  
 - [深入淺出 Java 8](https://www.gss.com.tw/blog/java8)
-- [Java 8 新特性簡單介紹](https://morosedog.gitlab.io/java-8-20200330-java8-0/)
-- [Java 8 新特性 (菜鳥教程)](https://www.runoob.com/java/java8-new-features.html)
+- [~~Java 8 新特性簡單介紹~~](https://morosedog.gitlab.io/java-8-20200330-java8-0/)
+- [~~Java 8 新特性 (菜鳥教程)~~](https://www.runoob.com/java/java8-new-features.html)
+- [Java8 新特性](https://www.jianshu.com/p/5b800057f2d8) 
+- [跟上 Java，知呼](https://zhuanlan.zhihu.com/p/33253953)
+  
 - 李昱賞 JavaSE 上課講義
+
+## 補充
+- 未 commit 的檔案 : 藍色
+- 未 加入 github 的檔案 : 紅色
