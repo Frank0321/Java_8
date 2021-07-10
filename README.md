@@ -10,6 +10,8 @@
 
 
 ## 新增 Optional 類別
+- 主要處理並判斷回傳是否為 null 的問題，若不處理，則會產生 NullPointerExpection
+- 
 
 ## 介面的靜態方法及預設方法
 
