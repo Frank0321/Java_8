@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 public class LambdaFun {
 
     //產生資料
-    List<Person> CreatData(){
+    List<Person> creatData(){
         List<Person> personList = new ArrayList<Person>();
         personList.add(Person.builder()
                 .id(1)
@@ -48,41 +48,62 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("功能型(Function)範例")
-    void FunctionLambdaTest(){
-        //input Person -> output String
-        Function<Person, String> personStringFunction = p -> p.getName();
-
-        for (Person p : CreatData()){
+    @DisplayName("功能型(匿名者)範例")
+    void functionTest(){
+        Function<Person, String> personStringFunction = new Function<Person, String>() {
+            @Override
+            public String apply(Person person) {
+                return person.getName();
+            }
+        };
+        for (Person p: creatData()) {
             System.out.println(personStringFunction.apply(p));
         }
     }
 
+    //TODO : 補充匿名者寫法
+    @Test
+    @DisplayName("功能型(Function)範例")
+    void functionLambdaTest(){
+        //input Person -> output String
+        Function<Person, String> personStringFunction = p -> p.getName();
+
+         // 在簡化寫法
+        //Function<Person, String> personStringFunction = Person::getName;
+
+        for (Person p : creatData()){
+            System.out.println(personStringFunction.apply(p));
+        }
+    }
+
+    //TODO : 補充匿名者寫法
     @Test
     @DisplayName("消費型(Consumer)範例")
-    void ConsumerLambdaTest(){
+    void consumerLambdaTest(){
         //input Person -> none output (void)
         Consumer<Person> personConsumer = p -> p.printPerson();
 
-        for (Person p : CreatData()){
+        for (Person p : creatData()){
             personConsumer.accept(p);
         }
     }
 
+    //TODO : 補充匿名者寫法
     @Test
     @DisplayName("評斷型(Predicate)範例")
-    void PredicateLambdaTest (){
+    void predicateLambdaTest(){
         //input Person -> out boolean
         Predicate<Person> personPredicate = p -> p.getId() > 2;
 
-        for (Person p: CreatData()) {
+        for (Person p: creatData()) {
             System.out.println(personPredicate.test(p)?p.getName():"none");
         }
     }
 
+    //TODO : 補充匿名者寫法
     @Test
     @DisplayName("供應型(Supplier)範例")
-    void SupplierLambdaTest(){
+    void supplierLambdaTest(){
         // none input -> out Person
         Supplier<Person> personSupplier = () ->
                 Person.builder().
