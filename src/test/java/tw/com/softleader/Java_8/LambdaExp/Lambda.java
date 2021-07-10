@@ -8,16 +8,20 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 利用 Lambda 實作文字的排序範例
+ */
+
 public class Lambda {
 
     //產生資料
     List<String> CreatData(){
         List<String> strs = new ArrayList<>();
         strs.add("A");
-        strs.add("E");
+        strs.add("Z");
+        strs.add("C");
         strs.add("F");
-        strs.add("S");
-        strs.add("Q");
+        strs.add("D");
         return strs;
     }
 
@@ -36,7 +40,7 @@ public class Lambda {
     }
 
     @Test
-    void lambdaMethod(){
+    void lambdaMethodOne(){
         List<String> strs = CreatData();
         Collections.sort(strs, ((o1, o2) -> o1.compareTo(o2)));
         System.out.print("Lambda 寫法 : ");
