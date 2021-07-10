@@ -61,7 +61,6 @@ public class LambdaFun {
         }
     }
 
-    //TODO : 補充匿名者寫法
     @Test
     @DisplayName("功能型(Function)範例")
     void functionLambdaTest(){
@@ -76,7 +75,22 @@ public class LambdaFun {
         }
     }
 
-    //TODO : 補充匿名者寫法
+    //==============================================================================================
+
+    @Test
+    @DisplayName("消費型(匿名者)範例")
+    void consumerTest(){
+        Consumer<Person> personConsumer = new Consumer<Person>() {
+            @Override
+            public void accept(Person person) {
+                person.printPerson();
+            }
+        };
+        for (Person p: creatData()) {
+            personConsumer.accept(p);
+        }
+    }
+
     @Test
     @DisplayName("消費型(Consumer)範例")
     void consumerLambdaTest(){
@@ -88,7 +102,22 @@ public class LambdaFun {
         }
     }
 
-    //TODO : 補充匿名者寫法
+    //==============================================================================================
+
+    @Test
+    @DisplayName("評斷型(匿名者)範例")
+    void predicateTest(){
+        Predicate<Person> personPredicate = new Predicate<Person>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getId()>2;
+            }
+        };
+        for (Person p: creatData()) {
+            System.out.println(personPredicate.test(p)?p.getName():"none");
+        }
+    }
+
     @Test
     @DisplayName("評斷型(Predicate)範例")
     void predicateLambdaTest(){
@@ -100,7 +129,24 @@ public class LambdaFun {
         }
     }
 
-    //TODO : 補充匿名者寫法
+    //==============================================================================================
+
+    @Test
+    @DisplayName("供應型(匿名者)範例")
+    void supplierTest(){
+        Supplier<Person> personSupplier = new Supplier<Person>() {
+            @Override
+            public Person get() {
+                return Person.builder()
+                        .id(6)
+                        .name("Frank")
+                        .email("Frank@mail")
+                        .build();
+            }
+        };
+        System.out.println(personSupplier.get());
+    }
+
     @Test
     @DisplayName("供應型(Supplier)範例")
     void supplierLambdaTest(){
