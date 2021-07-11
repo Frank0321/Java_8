@@ -75,6 +75,10 @@
 - 短路型終端作業 : 1 個
   - findFirst()、findAny()
   - anyMatch()、allMatch()、noneMatch()  
+- 相關練習題目
+  - [Java8-Stream-練習](https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/79735/)
+  - [Java 8 stream練習](https://www.twblogs.net/a/5e944436bd9eee34209023ab)  
+    
 
 ## Data Time API
 
