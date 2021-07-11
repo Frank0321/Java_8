@@ -2,6 +2,7 @@ package tw.com.softleader.Java_8.LambdaExp;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import tw.com.softleader.Java_8.Person;
 
 import java.util.ArrayList;
 import java.util.List;

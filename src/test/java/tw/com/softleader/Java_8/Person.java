@@ -1,4 +1,4 @@
-package tw.com.softleader.Java_8.LambdaExp;
+package tw.com.softleader.Java_8;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +16,8 @@ public class Person {
     private String name;
 
     private String email;
+
+    private int money;
 
     public void printPerson(){
         System.out.println(this);

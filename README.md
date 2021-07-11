@@ -52,13 +52,25 @@
 - 先定義資料來源，再分段處理，主要分成三種作業
 - 中間作業 : 0 ~ N 個
   - filter()
+    - 檢查集合中的每個元素是否符合你的期望時
+      
   - map()
+    - 輸入的資料，轉換成另一種格式 
+    - input T -> output R  
   - peek()
+    - 通過時，可以針對 value 進行調整、或是印出來
   - sorted()
+    - 要對集合內容進行排序時
   - flatMap()  
+    - 將不同集合中的資料串接在一起，成為在一起的一組集合 (攤平處理)
 - 終端作業 : 1 個
   - forEach()
-  - count()、sum()、average()、min()、max()
+    - 將最後結果跑 for loop
+  - count()
+    - 計算集合的元素數量
+  - sum()、average()
+  - min()、max()
+    - 集合中的最大值或最小值
   - collect()  
 - 短路型終端作業 : 1 個
   - findFirst()、findAny()
@@ -73,5 +85,6 @@
 - [~~Java 8 新特性 (菜鳥教程)~~](https://www.runoob.com/java/java8-new-features.html)
 - [Java8 新特性](https://www.jianshu.com/p/5b800057f2d8) 
 - [跟上 Java，知呼](https://zhuanlan.zhihu.com/p/33253953)
+- [stream 介紹](http://blog.tonycube.com/2015/10/java-java8-3-stream.html)
   
 - 李昱賞 JavaSE 上課講義
