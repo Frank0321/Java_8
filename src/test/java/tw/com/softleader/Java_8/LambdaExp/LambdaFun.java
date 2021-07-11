@@ -19,32 +19,13 @@ public class LambdaFun {
 
     //產生資料
     List<Person> creatData(){
-        List<Person> personList = new ArrayList<Person>();
-        personList.add(Person.builder()
-                .id(1)
-                .name("Rhys")
-                .email("Rhys@email")
-                .build());
-        personList.add(Person.builder()
-                .id(2)
-                .name("Matt")
-                .email("Matt@email")
-                .build());
-        personList.add(Person.builder()
-                .id(3)
-                .name("John")
-                .email("John@email")
-                .build());
-        personList.add(Person.builder()
-                .id(4)
-                .name("Maggie")
-                .email("Maggie@email")
-                .build());
-        personList.add(Person.builder()
-                .id(5)
-                .name("Ben")
-                .email("Ben@email")
-                .build());
+        List<Person> personList = List.of(
+                Person.builder().id(1).name("Rhys").email("Rhys@email").money(25000).build(),
+                Person.builder().id(2).name("Matt").email("Matt@email").money(30000).build(),
+                Person.builder().id(3).name("John").email("John@email").money(27000).build(),
+                Person.builder().id(4).name("Maggie").email("Maggie@email").money(35000).build(),
+                Person.builder().id(5).name("Ben").email("Ben@email").money(40000).build()
+        );
         return personList;
     }
 

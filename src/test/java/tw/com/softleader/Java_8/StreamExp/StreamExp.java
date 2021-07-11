@@ -13,17 +13,13 @@ import java.util.stream.Stream;
 public class StreamExp {
     //產生資料
     List<Person> creatData(){
-        List<Person> personList = new ArrayList<Person>();
-        personList.add(Person.builder()
-                .id(1).name("Rhys").email("Rhys@email").money(25000).build());
-        personList.add(Person.builder()
-                .id(2).name("Matt").email("Matt@email").money(30000).build());
-        personList.add(Person.builder()
-                .id(3).name("John").email("John@email").money(27000).build());
-        personList.add(Person.builder()
-                .id(4).name("Maggie").email("Maggie@email").money(35000).build());
-        personList.add(Person.builder()
-                .id(5).name("Ben").email("Ben@email").money(40000).build());
+        List<Person> personList = List.of(
+                Person.builder().id(1).name("Rhys").email("Rhys@email").money(25000).build(),
+                Person.builder().id(2).name("Matt").email("Matt@email").money(30000).build(),
+                Person.builder().id(3).name("John").email("John@email").money(27000).build(),
+                Person.builder().id(4).name("Maggie").email("Maggie@email").money(35000).build(),
+                Person.builder().id(5).name("Ben").email("Ben@email").money(40000).build()
+        );
         return personList;
     }
 
@@ -41,10 +37,11 @@ public class StreamExp {
     }
     @Test
     void Test2(){
-        List<List<String>> lists = new ArrayList<>();
-        lists.add(new ArrayList<String>(Arrays.asList("A","B","C")));
-        lists.add(new ArrayList<String>(Arrays.asList("D","E","F")));
-        lists.add(new ArrayList<String>(Arrays.asList("G","H","I")));
+        List<List<String>> lists = List.of(
+                List.of("A","B","C"),
+                List.of("D","E","F"),
+                List.of("G", "H", "I"));
+
         List<String> list = lists.stream()
                             .flatMap(strings -> strings.stream())
                             .collect(Collectors.toList());
