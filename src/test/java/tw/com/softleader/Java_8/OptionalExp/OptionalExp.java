@@ -8,7 +8,7 @@ import java.util.Optional;
 public class OptionalExp {
 
     @Test
-    @DisplayName("如果值是 Null 的狀況下")
+    @DisplayName("if value is null")
     void optionalExOne(){
         Optional< String > fullName = Optional.ofNullable( null );
         System.out.println( "Full Name is set? " + fullName.isPresent() );
@@ -17,7 +17,7 @@ public class OptionalExp {
     }
 
     @Test
-    @DisplayName("如果值不是 Null 的狀況下")
+    @DisplayName("if value is not null")
     void optionalExTwo(){
         Optional< String > firstName = Optional.of( "Tom" );
         System.out.println( "First Name is set? " + firstName.isPresent() );

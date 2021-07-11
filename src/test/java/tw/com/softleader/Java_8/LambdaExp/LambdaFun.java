@@ -48,7 +48,7 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("功能型(匿名者)範例")
+    @DisplayName("Function Anonymous Ex")
     void functionTest(){
         Function<Person, String> personStringFunction = new Function<Person, String>() {
             @Override
@@ -62,7 +62,7 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("功能型(Function)範例")
+    @DisplayName("Function Lambda Ex")
     void functionLambdaTest(){
         //input Person -> output String
         Function<Person, String> personStringFunction = p -> p.getName();
@@ -78,7 +78,7 @@ public class LambdaFun {
     //==============================================================================================
 
     @Test
-    @DisplayName("消費型(匿名者)範例")
+    @DisplayName("Consumer Anonymous Ex")
     void consumerTest(){
         Consumer<Person> personConsumer = new Consumer<Person>() {
             @Override
@@ -92,7 +92,7 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("消費型(Consumer)範例")
+    @DisplayName("Consumer Lambda Ex")
     void consumerLambdaTest(){
         //input Person -> none output (void)
         Consumer<Person> personConsumer = p -> p.printPerson();
@@ -105,7 +105,7 @@ public class LambdaFun {
     //==============================================================================================
 
     @Test
-    @DisplayName("評斷型(匿名者)範例")
+    @DisplayName("Predicate Anonymous Ex")
     void predicateTest(){
         Predicate<Person> personPredicate = new Predicate<Person>() {
             @Override
@@ -119,7 +119,7 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("評斷型(Predicate)範例")
+    @DisplayName("Predicate Lambda Ex")
     void predicateLambdaTest(){
         //input Person -> out boolean
         Predicate<Person> personPredicate = p -> p.getId() > 2;
@@ -132,7 +132,7 @@ public class LambdaFun {
     //==============================================================================================
 
     @Test
-    @DisplayName("供應型(匿名者)範例")
+    @DisplayName("Supplier Anonymous Ex")
     void supplierTest(){
         Supplier<Person> personSupplier = new Supplier<Person>() {
             @Override
@@ -148,7 +148,7 @@ public class LambdaFun {
     }
 
     @Test
-    @DisplayName("供應型(Supplier)範例")
+    @DisplayName("SupplierLambda Ex")
     void supplierLambdaTest(){
         // none input -> out Person
         Supplier<Person> personSupplier = () ->
