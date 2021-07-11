@@ -61,7 +61,3 @@
 - [跟上 Java，知呼](https://zhuanlan.zhihu.com/p/33253953)
   
 - 李昱賞 JavaSE 上課講義
-
-## 補充
-- 未 commit 的檔案 : 藍色
-- 未 加入 github 的檔案 : 紅色
