@@ -49,6 +49,20 @@
     
 
 ## Stream API
+- 先定義資料來源，再分段處理，主要分成三種作業
+- 中間作業 : 0 ~ N 個
+  - filter()
+  - map()
+  - peek()
+  - sorted()
+  - flatMap()  
+- 終端作業 : 1 個
+  - forEach()
+  - count()、sum()、average()、min()、max()
+  - collect()  
+- 短路型終端作業 : 1 個
+  - findFirst()、findAny()
+  - anyMatch()、allMatch()、noneMatch()  
 
 ## Data Time API
 
