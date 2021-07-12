@@ -23,16 +23,15 @@ public class TransactionTest {
 
     }
 
-    //1. 找出2011年發生的所有交易，並按交易額排序（從低到高），並印出名字 (Brian、Raoul)
+    //1. 找出2011年發生的所有交易，並按交易額排序（從高到低），並印出名字 (Brian、Raoul)
     //2. 交易員都在哪些不同的城市工作過? 並印出城市名稱  (Cambridge、Milan)
-    //3. 查詢所有來自劍橋的交易員，並按姓名排序
+    //3. 查詢所有來自劍橋(Cambridge)的交易員，並按姓名排序
     //4. 返回所有交易員的姓名字串，按字母順序排序
     //5. 有沒有交易員是在米蘭工作的？
     //6. 列印生活在劍橋的交易員的所有交易額
     //7. 所有交易中，最高的交易額是多少
     //8. 找到交易額最小的交易
 
-    //1. 找出2011年發生的所有交易，並按交易額排序（從低到高），並印出名字
     @Test
     void test1(){
         var list = beforeAll();
@@ -41,13 +40,12 @@ public class TransactionTest {
         // 轉成最內層的名字
         list.stream()
                 .filter(y -> y.getYear()==2011)
-                .sorted(Comparator.comparing(Transaction::getValue))
+                .sorted(Comparator.comparing(Transaction::getValue).reversed())
                 .map(Transaction::getTrader)
                 .map(Trader::getName)
                 .forEach(System.out::println);
     }
 
-    //2. 交易員都在哪些不同的城市工作過？
     @Test
     void test2(){
         var list = beforeAll();
@@ -58,6 +56,30 @@ public class TransactionTest {
                 .map(Trader::getCity)
                 .distinct()
                 .forEach(System.out::println);
+    }
+
+
+    @Test
+    void Test3(){
+        var list = beforeAll();
+        list.stream()
+                .filter(name -> name.getTrader().getCity() == "Cambridge")
+//                .sorted((t1, t2)->t1.getTrader().getName().compareTo(t2.getTrader().getName()))
+                .sorted(Comparator.comparing(t -> t.getTrader().getName()))
+                .forEach(System.out::println);
+    }
+
+    //4. 返回所有交易員的姓名字串，按字母順序排序
+    @Test
+    void Test4(){
+        var list = beforeAll();
+        list.stream()
+                .map(Transaction::getTrader)
+                .sorted(Comparator.comparing(Trader::getName))
+                .map(Trader::getName)
+                .distinct()
+                .forEach(System.out::println);
+
     }
 
 }
