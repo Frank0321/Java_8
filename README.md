@@ -90,5 +90,8 @@
 - [Java8 新特性](https://www.jianshu.com/p/5b800057f2d8) 
 - [跟上 Java，知呼](https://zhuanlan.zhihu.com/p/33253953)
 - [stream 介紹](http://blog.tonycube.com/2015/10/java-java8-3-stream.html)
+- [softleader 2018_Q1_stream](https://github.com/softleader/softleader-training-course/tree/master/2018/Q1/stream-adv)
+- [softleader 2016_Q1_stream](https://github.com/softleader/softleader-training-course/blob/master/2016/Q1/stream-and-lambda)
+
   
 - 李昱賞 JavaSE 上課講義
