@@ -92,6 +92,6 @@
 - [stream 介紹](http://blog.tonycube.com/2015/10/java-java8-3-stream.html)
 - [softleader 2018_Q1_stream](https://github.com/softleader/softleader-training-course/tree/master/2018/Q1/stream-adv)
 - [softleader 2016_Q1_stream](https://github.com/softleader/softleader-training-course/blob/master/2016/Q1/stream-and-lambda)
-
+- [深入淺出 Java 8 新語法特性 叡揚資訊](https://www.gss.com.tw/blog/java8)
   
 - 李昱賞 JavaSE 上課講義
