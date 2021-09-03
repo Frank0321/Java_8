@@ -80,8 +80,16 @@
   - [Java 8 stream練習](https://www.twblogs.net/a/5e944436bd9eee34209023ab)  
     
 
-## Data Time API
-
+## Java Time
+- 範例 : JavaTimeSample
+- 常見的三種格式 LocalDateTime、LocalDate、LocalTime
+- 常給 user 設定的狀態為 LocalDate，很少設定到 時分秒
+- Day.js : 前端的日期函數，與 Moment.js 相識，但效能 Day.js 較好
+- 只有 MinguoDate 沒有 MinguoTime 的原因 => 只有年會被轉換，小時不會被改變
+- format 在哪邊做轉換會比較好 ? 以 MVC 來說，建議在 controller 做轉換會比較好
+- 在分離部屬中，各自的架構皆有屬於自己的 MVC，以後端來說 view 代表的是拋出去的 Json
+- 通常時間的格式，是用 ISO 格式拋出去 (2021-09-03T23:49:37.8329223)
+- 
 
 ## 參考資料  
 - [深入淺出 Java 8](https://www.gss.com.tw/blog/java8)
