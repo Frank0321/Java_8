@@ -87,10 +87,28 @@
 - Day.js : 前端的日期函數，與 Moment.js 相識，但效能 Day.js 較好
 - 只有 MinguoDate 沒有 MinguoTime 的原因 => 只有年會被轉換，小時不會被改變
 - format 在哪邊做轉換會比較好 ? 以 MVC 來說，建議在 controller 做轉換會比較好
-- 在分離部屬中，各自的架構皆有屬於自己的 MVC，以後端來說 view 代表的是拋出去的 Json
 - 通常時間的格式，是用 ISO 格式拋出去 (2021-09-03T23:49:37.8329223)
-- 
+- LocalDate 裡面的 isAfter() 方法 : 不包含當天
 
+## 補充資料
+- 在分離部屬中，各自的架構皆有屬於自己的 MVC，以後端來說 view 代表的是拋出去的 Json
+- boolean & Boolean
+  - 在 getter 的用法上，boolean 是用 is 來接，Boolean 是用 get 來接
+  ```java
+  
+  @Getter
+  class Test{
+    booean workA; 
+    Boolean workB;
+  }
+  //......
+  Test test = new Test();
+  test.isWorkA();
+  test.getWorkB();
+  ```
+- 為了避免 null 的狀況發生，跟別人資料連接，或是跟資料庫連接，一律使用大寫型別
+- UnsupportedOperationException : 在使用 Arrays.asList("","","").add("") 會發生
+- 
 ## 參考資料  
 - [深入淺出 Java 8](https://www.gss.com.tw/blog/java8)
 - [~~Java 8 新特性簡單介紹~~](https://morosedog.gitlab.io/java-8-20200330-java8-0/)

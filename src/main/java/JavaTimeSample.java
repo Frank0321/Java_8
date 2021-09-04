@@ -6,7 +6,13 @@ import java.time.YearMonth;
 import java.time.ZoneId;
 import java.time.chrono.MinguoDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
+import jdk.jfr.Percentage;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 public class JavaTimeSample {
 
@@ -50,7 +56,69 @@ public class JavaTimeSample {
     //ISO 的時間格式
     System.out.println(time.format(DateTimeFormatter.ISO_DATE_TIME));
 
+    //日期的加減，可能會用到加一個工作天
+    System.out.println(date.plusDays(1));  //加一天
+    System.out.println(date.minusDays(1));  //減一天
 
+
+    //加一個工作天
+    System.out.println(plusWorkDate(LocalDate.now(), 1));
+
+  }
+
+
+  //假日物件
+  @Getter
+  @AllArgsConstructor
+  static class Holiday {
+    LocalDate date;
+    Boolean workDate;
+  }
+
+  //假日表
+  static List<Holiday> HOLIDAYS = List.of(
+      new Holiday(LocalDate.of(2021,9,1), true),
+      new Holiday(LocalDate.of(2021,9,2), true),
+      new Holiday(LocalDate.of(2021,9,3), true),
+      new Holiday(LocalDate.of(2021,9,4), false),
+      new Holiday(LocalDate.of(2021,9,5), false),
+      new Holiday(LocalDate.of(2021,9,6), true),
+      new Holiday(LocalDate.of(2021,9,7), true),
+      new Holiday(LocalDate.of(2021,9,8), true),
+      new Holiday(LocalDate.of(2021,9,9), true),
+      new Holiday(LocalDate.of(2021,9,10), true),
+      new Holiday(LocalDate.of(2021,9,11), true),
+      new Holiday(LocalDate.of(2021,9,12), false),
+      new Holiday(LocalDate.of(2021,9,13), true),
+      new Holiday(LocalDate.of(2021,9,14), true),
+      new Holiday(LocalDate.of(2021,9,15), true),
+      new Holiday(LocalDate.of(2021,9,16), true),
+      new Holiday(LocalDate.of(2021,9,17), true),
+      new Holiday(LocalDate.of(2021,9,18), false),
+      new Holiday(LocalDate.of(2021,9,19), false),
+      new Holiday(LocalDate.of(2021,9,20), false),
+      new Holiday(LocalDate.of(2021,9,21), false),
+      new Holiday(LocalDate.of(2021,9,22), true),
+      new Holiday(LocalDate.of(2021,9,23), true),
+      new Holiday(LocalDate.of(2021,9,24), true),
+      new Holiday(LocalDate.of(2021,9,25), false),
+      new Holiday(LocalDate.of(2021,9,26), false),
+      new Holiday(LocalDate.of(2021,9,27), true),
+      new Holiday(LocalDate.of(2021,9,28), true),
+      new Holiday(LocalDate.of(2021,9,29), true),
+      new Holiday(LocalDate.of(2021,9,30), true)
+  );
+
+  public static LocalDate plusWorkDate(LocalDate start, int workDates){
+    ArrayList<Holiday> holidays = new ArrayList<>(HOLIDAYS);
+    holidays.sort(Comparator.comparing(Holiday::getDate));
+    return holidays.stream()
+        .filter(h -> h.date.isAfter(start))
+        .filter(h -> h.workDate)
+        .skip(workDates - 1)
+        .findFirst()
+        .map(Holiday::getDate)
+        .orElseThrow(() -> new IllegalArgumentException(String.format("找不到此日期:%s+%d工作日的時間點", start, workDates)));
   }
 
 }
