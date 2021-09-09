@@ -15,6 +15,12 @@ public class OptionalSample {
     for (int i = 0; i < 10; i++) {
       runOpt3();
     }
+
+
+    System.out.println("JDK11-------------");
+    //JDK 11 多的內容
+    runOpt4();
+    runOpt5();
   }
 
   private static void runOpt(){
@@ -42,6 +48,26 @@ public class OptionalSample {
 //    String result = maybeNullValue().orElseGet(OptionalSample::notGood);
     System.out.println(result);
   }
+
+  private static void runOpt4(){
+    maybeNullValue().ifPresentOrElse(
+        s-> System.out.println(s),
+        ()-> System.out.println(notGood())
+    );
+  }
+
+  private static void runOpt5(){
+    //用 or 表示前後兩個都會有可能為 null
+    String s1 = maybeNullValue()
+        .or(() -> maybeNullValue())
+        .orElse(notGood());
+
+    String s2 = maybeNullValue()
+        .orElseGet(() -> maybeNullValue().orElseGet(() -> notGood()));
+
+
+  }
+
 
   private static String notGood(){
     System.out.println("Prepare doing");
