@@ -63,7 +63,8 @@ public class JavaTimeSample {
 
     //加一個工作天
     System.out.println(plusWorkDate(LocalDate.now(), 1));
-
+    //SELECT DATE FROM (SELECT DATE, ROWNUM ROW_NUM FROM HOLIDAYS WHERE DATE > START_DAY ORDER BY DATE) WHERE ROW_NU = 3;
+    System.out.println(plusWorkDateOther(LocalDate.now(), 1));
   }
 
 
@@ -119,6 +120,27 @@ public class JavaTimeSample {
         .findFirst()
         .map(Holiday::getDate)
         .orElseThrow(() -> new IllegalArgumentException(String.format("找不到此日期:%s+%d工作日的時間點", start, workDates)));
+  }
+
+  public static LocalDate plusWorkDateOther(LocalDate start, int workDates){
+    ArrayList<Holiday> holidays = new ArrayList<>(HOLIDAYS);
+    holidays.sort(Comparator.comparing(Holiday::getDate));
+
+    int left = workDates;
+    for(Holiday holiday: HOLIDAYS){
+      if (!holiday.date.isAfter((start))){
+        continue;
+      }
+      if(holiday.workDate){
+        left--;
+      }
+      if(left == 0){
+        return holiday.date;
+      }
+
+    }
+    throw new IllegalArgumentException(String.format("找不到此日期:%s+%d工作日的時間點", start, workDates));
+
   }
 
 }

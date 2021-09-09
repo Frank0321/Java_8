@@ -11,7 +11,18 @@
 
 ## 新增 Optional 類別
 - 主要處理並判斷回傳是否為 null 的問題，若不處理，則會產生 NullPointerExpection
-- 
+- Optional.of() : 回傳值絕對不是 null
+- Optional.ofNullable() : 回傳值有可能為 null
+- orElse() : 當如果是 null，就給一個預設值。實際上很少會有這個狀況，比較多的狀況為 return 為 null，整個流程要停止
+- orElseThrow() : 丟出一個 Expection
+- orElseGet() 與 orElse() 的差別
+  - orElse() : 在前面的判斷無論有沒有成功，都會先執行 orElse 內的事情(如 SQL)，會造成無謂的效能浪費
+  - orElseGet() : 則會前面判斷為 null 的時候，才會執行 orElseGet 內的東西
+  ```java
+    public T orElseGet(Supplier<? extends T> supplier) {
+        return value != null ? value : supplier.get();
+    }
+  ```
 
 ## 介面的靜態方法及預設方法
 
@@ -108,6 +119,9 @@
   ```
 - 為了避免 null 的狀況發生，跟別人資料連接，或是跟資料庫連接，一律使用大寫型別
 - UnsupportedOperationException : 在使用 Arrays.asList("","","").add("") 會發生
+  - 在做陣列計算時，需要避免元素被改變到，否則每次計算後，元素就會少一個，或是數字被改變
+
+- Math.radom() 盡量少用，她其實不夠隨機
 - 
 ## 參考資料  
 - [深入淺出 Java 8](https://www.gss.com.tw/blog/java8)
