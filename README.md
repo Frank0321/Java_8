@@ -26,6 +26,7 @@
 
 ## 介面的靜態方法及預設方法
 
+
 ## Lambda
 - 主要用來實作interface method(方法定義)使用匿名函式使的語法上更精簡!
   - 匿名函數也就是沒有名稱的方法
@@ -102,7 +103,10 @@
 - LocalDate 裡面的 isAfter() 方法 : 不包含當天
 
 ## 補充資料
+### MVC 補充資料
 - 在分離部屬中，各自的架構皆有屬於自己的 MVC，以後端來說 view 代表的是拋出去的 Json
+
+### 自動封裝與自動裝箱的差別 ?
 - boolean & Boolean
   - 在 getter 的用法上，boolean 是用 is 來接，Boolean 是用 get 來接
   ```java
@@ -118,11 +122,39 @@
   test.getWorkB();
   ```
 - 為了避免 null 的狀況發生，跟別人資料連接，或是跟資料庫連接，一律使用大寫型別
+
+### Exception 介紹
 - UnsupportedOperationException : 在使用 Arrays.asList("","","").add("") 會發生
   - 在做陣列計算時，需要避免元素被改變到，否則每次計算後，元素就會少一個，或是數字被改變
+- e.printStackTrace() 禁止使用
+  - [參考資料](https://blog.csdn.net/qq_28929589/article/details/82495193)
+- 通常有 Exception 的時候，會拋到 Controller 那一個層級，再由 Controller 決定要 catch 還是繼續往外拋
+  - 再往外拋 : Exception Handler (Spring MVC 的東西) 
+  ```java
+    @ControllerAdvice
+    class GlobalDefaultExceptionHandler {
+      public static final String DEFAULT_ERROR_VIEW = "error";
+    
+      @ExceptionHandler(value = Exception.class)
+      public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+        if (AnnotationUtils.findAnnotation
+        (e.getClass(), ResponseStatus.class) != null)
+        throw e
+        .....
+      }
+    }
+  ```
+- throw Exception
+  - 再將 Exception throw 出去時，需要包裝成 RuntimeException 
+  - 因為不太希望在方法上面看到 throws ，不然就要使用 @SneakyThrows
 
 - Math.radom() 盡量少用，她其實不夠隨機
-- 
+
+- interillJ :
+  - ctrl + alt + t : surround with
+
+
+
 ## 參考資料  
 - [深入淺出 Java 8](https://www.gss.com.tw/blog/java8)
 - [~~Java 8 新特性簡單介紹~~](https://morosedog.gitlab.io/java-8-20200330-java8-0/)
