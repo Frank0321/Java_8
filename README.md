@@ -23,6 +23,8 @@
         return value != null ? value : supplier.get();
     }
   ```
+- [Java8 新功能筆記 (4) - Optional](http://blog.tonycube.com/2015/10/java-java8-4-optional.html)
+
 
 ## 介面的靜態方法及預設方法
 
